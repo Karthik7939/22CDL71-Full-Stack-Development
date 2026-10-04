@@ -1,0 +1,17 @@
+[
+    {
+        "city": "Bangalore",
+        "temperature": "14 deg C",
+        "condition": "rainy"
+    },
+    {
+        "city": "Chennai",
+        "temperature": "16 deg C",
+        "condition": "humid"
+    },
+    {
+        "city": "Hyderabad",
+        "temperature": "21 deg C",
+        "condition": "sunny"
+    }
+]

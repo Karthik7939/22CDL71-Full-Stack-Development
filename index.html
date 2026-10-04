@@ -1,208 +1,290 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Full Stack Development</title>
-</head>
 
-<body style="
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #050816, #0b1026, #111936);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-">
+    <meta charset="UTF-8">
 
-    <div style="
-        width: 90%;
-        max-width: 850px;
-        padding: 50px;
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(0,255,255,0.25);
-        border-radius: 24px;
-        box-shadow: 0 0 40px rgba(0,255,255,0.12);
-        backdrop-filter: blur(15px);
-        box-sizing: border-box;
-    ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <div style="
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #050816, #0b1026, #111936);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(0, 255, 255, 0.25);
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+        }
+
+        .subtitle {
             color: #00ffff;
             font-size: 13px;
             letter-spacing: 4px;
             margin-bottom: 15px;
-        ">
-            FULL STACK DEVELOPMENT
-        </div>
+        }
 
-        <h1 style="
+        h1 {
             margin: 0;
             font-size: 42px;
             letter-spacing: 1px;
             background: linear-gradient(90deg, #ffffff, #00ffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        ">
-            Experiments
-        </h1>
+        }
 
-        <p style="
+        .description {
             color: #9ca8c7;
             font-size: 16px;
             margin-top: 12px;
             margin-bottom: 35px;
-        ">
+        }
+
+        .experiments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .experiment {
+            text-decoration: none;
+            color: white;
+            padding: 22px;
+            background: rgba(0, 255, 255, 0.06);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 14px;
+            display: block;
+            transition: 0.3s ease;
+        }
+
+        .experiment:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 255, 255, 0.12);
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+        }
+
+        .number {
+            color: #00ffff;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 18px;
+            margin-top: 8px;
+        }
+
+        .view {
+            color: #7f8aa8;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        .footer {
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #66708c;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 11px;
+                letter-spacing: 3px;
+            }
+
+            .experiments {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="subtitle">
+            FULL STACK DEVELOPMENT
+        </div>
+
+        <h1>
+            Experiments
+        </h1>
+
+        <p class="description">
             Web development laboratory • Experiments & Projects
         </p>
 
 
-        <div style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-        ">
+        <div class="experiments">
 
-            <a href="exp-1/" style="
-                text-decoration: none;
-                color: white;
-                padding: 22px;
-                background: rgba(0,255,255,0.06);
-                border: 1px solid rgba(0,255,255,0.2);
-                border-radius: 14px;
-                display: block;
-            ">
-                <div style="color:#00ffff; font-size:12px; letter-spacing:2px;">
+            <!-- Experiment 1 -->
+            <a href="./exp-1/" class="experiment">
+
+                <div class="number">
                     EXP 01
                 </div>
-                <div style="font-size:18px; margin-top:8px;">
+
+                <div class="title">
                     Experiment 1
                 </div>
+
+                <div class="view">
+                    Open Experiment →
+                </div>
+
             </a>
 
 
-            <a href="exp-2/" style="
-                text-decoration: none;
-                color: white;
-                padding: 22px;
-                background: rgba(0,255,255,0.06);
-                border: 1px solid rgba(0,255,255,0.2);
-                border-radius: 14px;
-                display: block;
-            ">
-                <div style="color:#00ffff; font-size:12px; letter-spacing:2px;">
+            <!-- Experiment 2 -->
+            <a href="./exp-2/" class="experiment">
+
+                <div class="number">
                     EXP 02
                 </div>
-                <div style="font-size:18px; margin-top:8px;">
+
+                <div class="title">
                     Experiment 2
                 </div>
+
+                <div class="view">
+                    Open Experiment →
+                </div>
+
             </a>
 
 
-            <a href="exp-3/" style="
-                text-decoration: none;
-                color: white;
-                padding: 22px;
-                background: rgba(0,255,255,0.06);
-                border: 1px solid rgba(0,255,255,0.2);
-                border-radius: 14px;
-                display: block;
-            ">
-                <div style="color:#00ffff; font-size:12px; letter-spacing:2px;">
+            <!-- Experiment 3 -->
+            <a href="./exp-3/" class="experiment">
+
+                <div class="number">
                     EXP 03
                 </div>
-                <div style="font-size:18px; margin-top:8px;">
+
+                <div class="title">
                     Experiment 3
                 </div>
+
+                <div class="view">
+                    Open Experiment →
+                </div>
+
             </a>
 
 
-            <a href="exp-4/" style="
-                text-decoration: none;
-                color: white;
-                padding: 22px;
-                background: rgba(0,255,255,0.06);
-                border: 1px solid rgba(0,255,255,0.2);
-                border-radius: 14px;
-                display: block;
-            ">
-                <div style="color:#00ffff; font-size:12px; letter-spacing:2px;">
+            <!-- Experiment 4 -->
+            <a href="./exp-4/" class="experiment">
+
+                <div class="number">
                     EXP 04
                 </div>
-                <div style="font-size:18px; margin-top:8px;">
+
+                <div class="title">
                     Experiment 4
                 </div>
+
+                <div class="view">
+                    Open Experiment →
+                </div>
+
             </a>
 
 
-            <a href="exp-5/" style="
-                text-decoration: none;
-                color: white;
-                padding: 22px;
-                background: rgba(0,255,255,0.06);
-                border: 1px solid rgba(0,255,255,0.2);
-                border-radius: 14px;
-                display: block;
-            ">
-                <div style="color:#00ffff; font-size:12px; letter-spacing:2px;">
+            <!-- Experiment 5 -->
+            <a href="./exp-5/" class="experiment">
+
+                <div class="number">
                     EXP 05
                 </div>
-                <div style="font-size:18px; margin-top:8px;">
+
+                <div class="title">
                     Experiment 5
                 </div>
+
+                <div class="view">
+                    Open Experiment →
+                </div>
+
             </a>
 
 
-            <a href="exp-6/" style="
-                text-decoration: none;
-                color: white;
-                padding: 22px;
-                background: rgba(0,255,255,0.06);
-                border: 1px solid rgba(0,255,255,0.2);
-                border-radius: 14px;
-                display: block;
-            ">
-                <div style="color:#00ffff; font-size:12px; letter-spacing:2px;">
+            <!-- Experiment 6 -->
+            <a href="./exp-6/" class="experiment">
+
+                <div class="number">
                     EXP 06
                 </div>
-                <div style="font-size:18px; margin-top:8px;">
+
+                <div class="title">
                     Experiment 6
                 </div>
+
+                <div class="view">
+                    Open Experiment →
+                </div>
+
             </a>
 
 
-            <a href="exp-7/" style="
-                text-decoration: none;
-                color: white;
-                padding: 22px;
-                background: rgba(0,255,255,0.06);
-                border: 1px solid rgba(0,255,255,0.2);
-                border-radius: 14px;
-                display: block;
-            ">
-                <div style="color:#00ffff; font-size:12px; letter-spacing:2px;">
+            <!-- Experiment 7 -->
+            <a href="./exp-7/" class="experiment">
+
+                <div class="number">
                     EXP 07
                 </div>
-                <div style="font-size:18px; margin-top:8px;">
+
+                <div class="title">
                     Experiment 7
                 </div>
+
+                <div class="view">
+                    Open Experiment →
+                </div>
+
             </a>
 
         </div>
 
 
-        <div style="
-            margin-top: 35px;
-            padding-top: 18px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #66708c;
-            font-size: 12px;
-            letter-spacing: 1px;
-        ">
+        <div class="footer">
             2026 • FULL STACK DEVELOPMENT LAB
         </div>
 
     </div>
 
 </body>
+
 </html>
