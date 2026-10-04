@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Full Stack Development</title>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <style>
         * {
             box-sizing: border-box;
@@ -17,274 +13,328 @@
             margin: 0;
             min-height: 100vh;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #050816, #0b1026, #111936);
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 15px;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0,255,255,0.12), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(0,100,255,0.15), transparent 30%),
+                linear-gradient(135deg, #020617, #071126, #020617);
+            padding: 40px 20px;
         }
 
         .container {
             width: 100%;
-            max-width: 900px;
-            padding: 50px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(0, 255, 255, 0.25);
-            border-radius: 24px;
-            box-shadow: 0 0 40px rgba(0, 255, 255, 0.12);
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,255,255,0.2);
+            border-radius: 25px;
+            box-shadow: 0 0 60px rgba(0,255,255,0.08);
             backdrop-filter: blur(15px);
         }
 
-        .subtitle {
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .badge {
             color: #00ffff;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 4px;
-            margin-bottom: 15px;
+            border: 1px solid rgba(0,255,255,0.3);
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: rgba(0,255,255,0.05);
+        }
+
+        .status {
+            color: #6ee7ff;
+            font-size: 12px;
+        }
+
+        .status span {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: #00ffff;
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 10px #00ffff;
         }
 
         h1 {
             margin: 0;
-            font-size: 42px;
-            letter-spacing: 1px;
-            background: linear-gradient(90deg, #ffffff, #00ffff);
+            font-size: 52px;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, white, #00ffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .description {
-            color: #9ca8c7;
+            color: #94a3b8;
             font-size: 16px;
             margin-top: 12px;
+            margin-bottom: 40px;
+        }
+
+        .line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
             margin-bottom: 35px;
+            opacity: 0.4;
         }
 
         .experiments {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
 
         .experiment {
+            position: relative;
+            overflow: hidden;
             text-decoration: none;
             color: white;
-            padding: 22px;
-            background: rgba(0, 255, 255, 0.06);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 14px;
-            display: block;
+            padding: 25px;
+            min-height: 145px;
+            background: linear-gradient(
+                145deg,
+                rgba(0,255,255,0.08),
+                rgba(255,255,255,0.03)
+            );
+            border: 1px solid rgba(0,255,255,0.18);
+            border-radius: 16px;
+            transition: 0.3s ease;
+        }
+
+        .experiment::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #00ffff;
+            filter: blur(70px);
+            opacity: 0;
+            right: -30px;
+            bottom: -30px;
             transition: 0.3s ease;
         }
 
         .experiment:hover {
-            transform: translateY(-5px);
-            background: rgba(0, 255, 255, 0.12);
+            transform: translateY(-7px);
             border-color: #00ffff;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+            background: rgba(0,255,255,0.09);
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.3),
+                0 0 20px rgba(0,255,255,0.15);
+        }
+
+        .experiment:hover::before {
+            opacity: 0.15;
         }
 
         .number {
             color: #00ffff;
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
         }
 
         .title {
-            font-size: 18px;
-            margin-top: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
         .view {
-            color: #7f8aa8;
+            color: #64748b;
             font-size: 12px;
-            margin-top: 12px;
+            transition: 0.3s ease;
+        }
+
+        .experiment:hover .view {
+            color: #00ffff;
+        }
+
+        .arrow {
+            float: right;
+            color: #475569;
+            font-size: 20px;
+            transition: 0.3s ease;
+        }
+
+        .experiment:hover .arrow {
+            color: #00ffff;
+            transform: translateX(5px);
         }
 
         .footer {
-            margin-top: 35px;
-            padding-top: 18px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #66708c;
-            font-size: 12px;
-            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #475569;
+            font-size: 11px;
+            letter-spacing: 2px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
+            .experiments {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
             .container {
-                padding: 30px 20px;
+                padding: 30px;
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 20px 10px;
             }
 
-            .subtitle {
-                font-size: 11px;
-                letter-spacing: 3px;
+            .container {
+                padding: 25px 18px;
+            }
+
+            .top {
+                display: block;
+            }
+
+            .status {
+                margin-top: 15px;
+            }
+
+            h1 {
+                font-size: 34px;
             }
 
             .experiments {
                 grid-template-columns: 1fr;
             }
+
+            .footer {
+                display: block;
+                line-height: 2;
+            }
         }
     </style>
 </head>
-
 
 <body>
 
     <div class="container">
 
-        <div class="subtitle">
-            FULL STACK DEVELOPMENT
+        <div class="top">
+            <div class="badge">
+                FULL STACK DEVELOPMENT
+            </div>
+
+            <div class="status">
+                <span></span>
+                LAB SYSTEM ONLINE
+            </div>
         </div>
 
-        <h1>
-            Experiments
-        </h1>
+        <h1>Experiments</h1>
 
         <p class="description">
-            Web development laboratory • Experiments & Projects
+            Web Development Laboratory • Experiments & Projects
         </p>
 
+        <div class="line"></div>
 
         <div class="experiments">
 
-            <!-- Experiment 1 -->
             <a href="./exp-1/" class="experiment">
-
-                <div class="number">
-                    EXP 01
-                </div>
-
-                <div class="title">
-                    Experiment 1
-                </div>
-
-                <div class="view">
-                    Open Experiment →
-                </div>
-
+                <div class="number">EXP 01</div>
+                <div class="title">Experiment 1</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
             </a>
 
-
-            <!-- Experiment 2 -->
             <a href="./exp-2/" class="experiment">
-
-                <div class="number">
-                    EXP 02
-                </div>
-
-                <div class="title">
-                    Experiment 2
-                </div>
-
-                <div class="view">
-                    Open Experiment →
-                </div>
-
+                <div class="number">EXP 02</div>
+                <div class="title">Experiment 2</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
             </a>
 
-
-            <!-- Experiment 3 -->
             <a href="./exp-3/" class="experiment">
-
-                <div class="number">
-                    EXP 03
-                </div>
-
-                <div class="title">
-                    Experiment 3
-                </div>
-
-                <div class="view">
-                    Open Experiment →
-                </div>
-
+                <div class="number">EXP 03</div>
+                <div class="title">Experiment 3</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
             </a>
 
-
-            <!-- Experiment 4 -->
             <a href="./exp-4/" class="experiment">
-
-                <div class="number">
-                    EXP 04
-                </div>
-
-                <div class="title">
-                    Experiment 4
-                </div>
-
-                <div class="view">
-                    Open Experiment →
-                </div>
-
+                <div class="number">EXP 04</div>
+                <div class="title">Experiment 4</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
             </a>
 
-
-            <!-- Experiment 5 -->
             <a href="./exp-5/" class="experiment">
-
-                <div class="number">
-                    EXP 05
-                </div>
-
-                <div class="title">
-                    Experiment 5
-                </div>
-
-                <div class="view">
-                    Open Experiment →
-                </div>
-
+                <div class="number">EXP 05</div>
+                <div class="title">Experiment 5</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
             </a>
 
-
-            <!-- Experiment 6 -->
             <a href="./exp-6/" class="experiment">
-
-                <div class="number">
-                    EXP 06
-                </div>
-
-                <div class="title">
-                    Experiment 6
-                </div>
-
-                <div class="view">
-                    Open Experiment →
-                </div>
-
+                <div class="number">EXP 06</div>
+                <div class="title">Experiment 6</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
             </a>
 
-
-            <!-- Experiment 7 -->
             <a href="./exp-7/" class="experiment">
+                <div class="number">EXP 07</div>
+                <div class="title">Experiment 7</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
+            </a>
 
-                <div class="number">
-                    EXP 07
-                </div>
+            <a href="./exp-8/" class="experiment">
+                <div class="number">EXP 08</div>
+                <div class="title">Experiment 8</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
+            </a>
 
-                <div class="title">
-                    Experiment 7
-                </div>
+            <a href="./exp-9/" class="experiment">
+                <div class="number">EXP 09</div>
+                <div class="title">Experiment 9</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
+            </a>
 
-                <div class="view">
-                    Open Experiment →
-                </div>
+            <a href="./exp-10/" class="experiment">
+                <div class="number">EXP 10</div>
+                <div class="title">Experiment 10</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
+            </a>
 
+            <a href="./exp-11/" class="experiment">
+                <div class="number">EXP 11</div>
+                <div class="title">Experiment 11</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
+            </a>
+
+            <a href="./exp-12/" class="experiment">
+                <div class="number">EXP 12</div>
+                <div class="title">Experiment 12</div>
+                <div class="view">Open Experiment <span class="arrow">→</span></div>
             </a>
 
         </div>
 
-
         <div class="footer">
-            2026 • FULL STACK DEVELOPMENT LAB
+            <span>2026 • FULL STACK DEVELOPMENT LAB</span>
+            <span>12 EXPERIMENTS</span>
         </div>
 
     </div>
 
 </body>
-
 </html>

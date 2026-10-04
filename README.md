@@ -1,1 +1,1 @@
-Live Preview for all the experiments: https://karthik7939.github.io/22CDL71-Full-Stack-Development/
+Live Preview for all the experiments: https://22cdl71-full-stack-development.vercel.app/
