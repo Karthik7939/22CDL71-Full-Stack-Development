@@ -1,1 +1,63 @@
+# Dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# Production / Build outputs
+dist/
+dist-ssr/
+build/
+out/
+out-tsc/
+bazel-out/
+*.tsbuildinfo
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Angular cache & build
+.angular/
+
+# Vite / Bundler / Temp caches
+.vite/
+.vite-temp/
+.cache/
+.parcel-cache/
+.temp/
+tmp/
+temp/
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+
+# Editor directories and files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini

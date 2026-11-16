@@ -1,0 +1,47 @@
+.container {
+  width: 700px;
+  max-width: 90%;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.form-box {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 80px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.review-title {
+  margin-top: 30px;
+}
