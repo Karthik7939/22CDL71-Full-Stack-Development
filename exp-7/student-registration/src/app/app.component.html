@@ -2,13 +2,14 @@
 
   <div class="top">
     <button (click)="changeTheme()">
-      {{dark ? '☀ Light Mode' : '🌙 Dark Mode'}}
+      <!-- {{dark ? '☀ Light Mode' : '🌙 Dark Mode'}} -->
+       Change the Theme
     </button>
   </div>
 
   <h1>Register Now!!</h1>
 
-  <input type="text" placeholder="Enter Student Name" [(ngModel)]="name" required>
+  <input type="text" placeholder="Enter Student Name" [(ngModel)]="name" >
 
   <button (click)="join()">Join</button>
 

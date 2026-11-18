@@ -324,3 +324,78 @@ export default function App() {
    - React detects changes by comparing object/array references. Direct mutations like `tasks.push()` do not change the array reference, causing React to skip re-rendering. We always use pure operations like `[...tasks, newTask]`, `tasks.map(...)`, and `tasks.filter(...)`.
 3. **Why do elements rendered with `.map()` require a `key` prop?**
    - The `key` (e.g. `key={task.id}`) gives elements a stable identity across renders, enabling React's reconciliation engine to efficiently identify which items changed, were added, or were removed.
+
+---
+
+## Shortened Code
+
+```jsx
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [tasks, setTasks] = useState([]);
+  const [input, setInput] = useState('');
+
+  // Add task
+  function addTask() {
+    if (input.trim() === '') return;
+
+    setTasks([...tasks, {
+      id: Date.now(),
+      text: input,
+      completed: false
+    }]);
+
+    setInput('');
+  }
+
+  // Complete task
+  function toggleTask(id) {
+    setTasks(tasks.map(task =>
+      task.id === id
+        ? { ...task, completed: !task.completed }
+        : task
+    ));
+  }
+
+  // Delete task
+  function deleteTask(id) {
+    setTasks(tasks.filter(task => task.id !== id));
+  }
+
+  return (
+    <div className="todo-card">
+      <h1>My To-Do List</h1>
+
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter task"
+      />
+
+      <button onClick={addTask}>Add</button>
+
+      {tasks.map(task => (
+        <div key={task.id}>
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => toggleTask(task.id)}
+          />
+
+          <span>
+            {task.completed ? <del>{task.text}</del> : task.text}
+          </span>
+
+          <button onClick={() => deleteTask(task.id)}>
+            Delete
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default App;
+```
